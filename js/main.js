@@ -42,11 +42,13 @@ let buxoro = document.querySelector(".map-svg .buxoro");
 let xorazm = document.querySelector(".map-svg .xorazm");
 let qoraqolpakston = document.querySelector(".map-svg .qoraqolpakstan");
 
-buxoro.addEventListener("click", () => showData(3));
-xorazm.addEventListener("click", () => showData(2));
-qoraqolpakston.addEventListener("click", () => showData(4));
+buxoro.addEventListener("click", () => showData(buxoro, 3));
+xorazm.addEventListener("click", () => showData(xorazm, 2));
+qoraqolpakston.addEventListener("click", () => showData(qoraqolpakston, 4));
 
-function showData(num) {
+function showData(smth, num) {
+  document.querySelector(".map-svg path").setAttribute("fill", "#d4d3c4")
+  smth.setAttribute("fill", "red");
   list.innerHTML = ""
   objMap.forEach((item) => {
     if(item.id == num){
@@ -103,7 +105,6 @@ function showData(num) {
         `;
   
       list.appendChild(elItem);
-      console.log(list);
     }
 
   })
